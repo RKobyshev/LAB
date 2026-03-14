@@ -11,7 +11,7 @@ p_meas = [417.3, 415.6, 413.7, 411.7, 407.8, 405.9, 402.0, 398.1, 392.2]
 P = [x - pgh for x in p_meas]                         # Лапласовское давление, Па
 t = [21.1, 25.3, 30.2, 35.3, 40.2, 45.2, 50.0, 55.2, 60.2]
 T = np.array([x + 273.15 for x in t])                 # K
-R = 0.0005                                             # м
+R = 0.00055                                             # м
 sigma = np.array([(x * R) / 2 for x in P])            # Н/м
 sigma_err = 0.05 * sigma
 T_err = 0.1 * np.ones_like(T)
@@ -102,8 +102,8 @@ plt.text(0.05, 0.85, f'α = {alpha:.3f} ± {d_alpha:.3f}',
 
 # Сетка
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
-plt.xlabel('Температура, K (логарифмическая шкала)')
-plt.ylabel('U/F, мДж/м² (логарифмическая шкала)')
+plt.xlabel('Температура, K')
+plt.ylabel('U/F, мДж/м²')
 plt.title('Полная поверхностная энергия единицы площади')
 plt.tight_layout()
 plt.show()
